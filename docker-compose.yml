@@ -64,7 +64,7 @@ volumes:
       type: none
       device: /home/ubuntu/e0arquiaws/public/
       o: bind
-   dhparam:
+  dhparam:
     driver: local
     driver_opts:
       type: none
