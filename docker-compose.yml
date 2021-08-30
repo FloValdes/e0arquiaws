@@ -56,7 +56,7 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: /home/ubuntu/node_project/views/
+      device: /home/ubuntu/e0arquiaws/app/views/
       o: bind
 
 networks:
