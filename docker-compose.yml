@@ -31,20 +31,20 @@ services:
       - app
     ports:
       - 80:80
-    volumes:
-      - web-root:/var/www/html
-      - ./nginx-conf:/etc/nginx/conf.d
-      - certbot-etc:/etc/letsencrypt
-      - certbot-var:/var/lib/letsencrypt
+    # volumes:
+    #   - web-root:/var/www/html
+    #   - ./nginx-conf:/etc/nginx/conf.d
+    #   - certbot-etc:/etc/letsencrypt
+    #   - certbot-var:/var/lib/letsencrypt
     networks:
       - app-network
   certbot:
     image: certbot/certbot
     container_name: certbot
-    volumes:
-      - certbot-etc:/etc/letsencrypt
-      - certbot-var:/var/lib/letsencrypt
-      - web-root:/var/www/html
+    # volumes:
+    #   - certbot-etc:/etc/letsencrypt
+    #   - certbot-var:/var/lib/letsencrypt
+    #   - web-root:/var/www/html
     depends_on:
       - nginx
     command: certonly --webroot --webroot-path=/var/www/html --email flo_806@hotmail.com --agree-tos --no-eff-email --staging -d iic2173fvaldes.ga  -d www.iic2173fvaldes.ga
