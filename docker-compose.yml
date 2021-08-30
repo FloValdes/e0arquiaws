@@ -5,6 +5,7 @@ services:
     command: ["postgres", "-c", "fsync=false", "-c", "full_page_writes=off"]
     environment:
       POSTGRES_PASSWORD: password
+      POSTGRES_HOST_AUTH_METHOD: trust
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
     ports:
