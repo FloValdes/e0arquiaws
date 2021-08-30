@@ -22,8 +22,8 @@ services:
     image: app
     container_name: app
     restart: unless-stopped
-    networks:
-      - app-network
+    # networks:
+    #   - app-network
   nginx:
     build:
       context: .
@@ -40,8 +40,8 @@ services:
       - certbot-var:/var/lib/letsencrypt
     depends_on:
       - app
-    networks:
-      - app-network
+    # networks:
+    #   - app-network
   certbot:
     image: certbot/certbot
     container_name: certbot
@@ -63,6 +63,6 @@ volumes:
       device: /home/ubuntu/e0arquiaws/public/
       o: bind
 
-networks:
-  app-network:
-    driver: bridge
+# networks:
+#   app-network:
+#     driver: bridge
