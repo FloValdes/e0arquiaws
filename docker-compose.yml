@@ -46,7 +46,7 @@ services:
       - certbot-var:/var/lib/letsencrypt
       - web-root:/var/www/html
     depends_on:
-      - webserver
+      - nginx
     command: certonly --webroot --webroot-path=/var/www/html --email flo_806@hotmail.com --agree-tos --no-eff-email --staging -d iic2173fvaldes.ga  -d www.iic2173fvaldes.ga
 
 volumes:
