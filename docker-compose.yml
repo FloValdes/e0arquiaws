@@ -18,6 +18,11 @@ services:
       - .:/app
     depends_on:
       - postgres
+    image: app
+    container_name: app
+    restart: unless-stopped
+    networks: 
+      - app-network
   nginx:
     build:
       context: .
@@ -26,3 +31,28 @@ services:
       - app
     ports:
       - 80:80
+    container_name: nginx
+    volumes:
+      - web-root:/app/public
+      - ./nginx-conf:/etc/nginx/conf.d
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/lib/letsencrypt
+    depends_on:
+      - app
+    networks:
+      - app-network
+
+
+volumes:
+  certbot-etc:
+  certbot-var:
+  web-root:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/ubuntu/e0arquiaws/public/
+      o: bind
+
+networks:
+  app-network:
+    driver: bridge
