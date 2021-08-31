@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  intention: MyString
+  quantity: 1.5
+  timestamp: 2021-08-31 18:17:24
+  product: one
+
+two:
+  intention: MyString
+  quantity: 1.5
+  timestamp: 2021-08-31 18:17:24
+  product: two

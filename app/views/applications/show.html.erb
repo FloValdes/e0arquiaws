@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Intention:</strong>
+  <%= @application.intention %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @application.quantity %>
+</p>
+
+<p>
+  <strong>Timestamp:</strong>
+  <%= @application.timestamp %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @application.product_id %>
+</p>
+
+<%= link_to 'Edit', edit_application_path(@application) %> |
+<%= link_to 'Back', applications_path %>

@@ -1,0 +1,37 @@
+<%= form_with(model: application) do |form| %>
+  <% if application.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(application.errors.count, "error") %> prohibited this application from being saved:</h2>
+
+      <ul>
+        <% application.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :intention %>
+    <%= form.select :intention, options_for_select([['Compra', 'compra'], ['Venta', 'venta']]) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :quantity %>
+    <%= form.text_field :quantity %>
+  </div>
+
+  <div class="field">
+    <%= form.label :timestamp %>
+    <%= form.datetime_select :timestamp %>
+  </div>
+
+  <div class="field">
+    <%= form.label :product_id %>
+    <%= collection_select(:application, :product_id, Product.all, :id, :name, prompt: true) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
